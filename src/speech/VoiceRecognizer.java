@@ -10,12 +10,11 @@ import edu.cmu.sphinx.api.LiveSpeechRecognizer;
  */
 public class VoiceRecognizer {
     // Necessary file paths
-    private static final String LANGUAGE_MODEL = "resource:/edu/cmu/sphinx/models/en-us/en-us";
     private static final String DICTIONARY = "resource:/edu/cmu/sphinx/models/en-us/cmudict-en-us.dict";
-    private static final String ACOUSTIC_MODEL = "resource:/edu/cmu/sphinx/models/en-us/en-us.lm.bin";
+    private static final String LANGUAGE_MODEL = "resource:/edu/cmu/sphinx/models/en-us/en-us.lm.bin";
+    private static final String ACOUSTIC_MODEL = "resource:/edu/cmu/sphinx/models/en-us/en-us";
 
     // Setup requirements
-    private static Configuration configuration;
     private static LiveSpeechRecognizer recognizer;
 
     // Recognizer results
@@ -26,12 +25,11 @@ public class VoiceRecognizer {
      */
     public VoiceRecognizer() throws IOException {
         // Set up configuration and dependencies
-        configuration = new Configuration();
-        configuration.setLanguageModelPath(LANGUAGE_MODEL);
+        Configuration configuration = new Configuration();
         configuration.setDictionaryPath(DICTIONARY);
         configuration.setAcousticModelPath(ACOUSTIC_MODEL);
+        configuration.setLanguageModelPath(LANGUAGE_MODEL);
 
-        // TODO: Fix unknown format exception
         recognizer = new LiveSpeechRecognizer(configuration);
     }
 
