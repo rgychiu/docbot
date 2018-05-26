@@ -6,7 +6,9 @@ and recommendations for all of your medical needs.
 ### Setup
 First, clone this repository:
 
-``` https://github.com/rgychiu/docbot.git ```
+``` 
+https://github.com/rgychiu/docbot.git 
+```
 
 **_Note that this project was developed using IntellijIDEA. As a result, cloning the project may not include the necessary
 libraries or build configuration. You may also need to configure the build paths accordingly._**
