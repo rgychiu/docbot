@@ -2,6 +2,8 @@ package data;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 
 /**
  * Class that aggregates all medical data through web scraping.
@@ -23,9 +25,10 @@ public class Aggregator {
      */
     public void retrieveData() throws Exception {
         // TODO: Catch and handle exception
+        // Scrape website, get list of illness categories (defined by ul with class topiclist on site - 6/9/18)
         Document medDoc = Jsoup.connect(MEDICINE_URL).get();
-        String body = medDoc.body().text();
-        System.out.println(body);
+        Element siteHTMLBody = medDoc.body();
+        Elements illnessList = siteHTMLBody.getElementsByClass("topiclist");
     }
 
     /**
